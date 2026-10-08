@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>雅思一月通：听力胜典 · 简报（单文件）</title>
+<style>
+
+:root{
+  --bg:#f4f5f7; --card:#fff;
+  --ink:#0b1220; --ink-2:#1f2937; --muted:#6b7280; --line:#e5e7eb; --line-soft:#f1f3f6;
+  --dark:#0b1730; --dark-2:#111d3a; --dark-ink:#e5ecff; --dark-muted:#c9d4ee; --dark-line:rgba(255,255,255,.08);
+  --gold:#f6c343; --gold-deep:#c9971f;
+  --red:#ef4444; --green:#22c55e; --blue:#3b82f6;
+  --purple:#8b5cf6; --orange:#f59e0b; --teal:#14b8a6; --pink:#ec4899;
+  --yellow-soft:#fde68a; --red-soft:#fecaca; --green-soft:#bbf7d0;
+  --blue-soft:#bfdbfe; --purple-soft:#ddd6fe; --orange-soft:#fed7aa;
+  --teal-soft:#99f6e4; --pink-soft:#fbcfe8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",
+  "Helvetica Neue",Helvetica,Arial,"Noto Sans CJK SC","Source Han Sans SC",sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.mono,.num,.idx,.lbl,.date,.lead-line,.copyright,.kicker,.badge-issue{font-family:"SF Mono","Menlo","Consolas","Courier New",monospace}
+code,.en{font-family:"SF Mono","Menlo","Consolas","Courier New",monospace}
+code{background:var(--line-soft);padding:1px 5px;border-radius:4px;font-size:12.5px;color:var(--ink-2)}
+.page{width:1200px;margin:0 auto;padding:36px 48px 48px}
+@media (max-width:1260px){.page{width:auto;max-width:1200px;padding:28px 20px 40px}}
+
+/* HERO */
+.hero{position:relative;background:radial-gradient(1200px 600px at 100% 0%,#1b2a55 0%,#0b1730 60%);color:#fff;border-radius:18px;padding:28px 36px 30px;overflow:hidden;margin-bottom:20px}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,195,67,.18),transparent 70%);pointer-events:none}
+.hero .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+.hero .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dark-muted)}
+.badge-issue{border:1px solid rgba(246,195,67,.55);color:var(--gold);padding:4px 12px;border-radius:999px;font-weight:600;font-size:12.5px;white-space:nowrap;text-decoration:none}
+.hero h1{margin:18px 0 6px;font-size:46px;line-height:1.1;font-weight:900;letter-spacing:.5px;background:linear-gradient(90deg,#fff 0%,#f6c343 60%);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;z-index:1}
+.hero .sub{font-size:18px;font-weight:700;color:#fff;margin:2px 0 12px;position:relative;z-index:1}
+.hero .intro{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px;color:#dce5fb;font-size:13.5px;line-height:1.8;position:relative;z-index:1}
+.hero .intro b{color:var(--gold);font-weight:700}
+@media (max-width:760px){.hero{padding:22px 20px 24px}.hero h1{font-size:28px}.hero .sub{font-size:15px}}
+
+/* 吸顶工具条 */
+.bar{position:sticky;top:0;z-index:50;background:rgba(244,245,247,.94);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);margin:-36px -48px 0;padding:0 48px 6px}
+@media (max-width:1260px){.bar{margin:-28px -20px 0;padding:0 20px 6px}}
+.bar-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:var(--ink)}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(246,195,67,.8)}
+.bar nav{display:flex;gap:2px;overflow-x:auto;flex:1;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{font-size:12.5px;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
+.bar nav a:hover{color:var(--ink);background:var(--line-soft)}
+.bar nav a.on{background:var(--dark);color:#fff;font-weight:600}
+.tools{display:flex;gap:8px;flex-shrink:0}
+#search{font-family:inherit;font-size:12.5px;border:1px solid var(--line);background:#fff;padding:6px 11px;border-radius:7px;width:120px;color:var(--ink);outline:none;transition:.2s}
+#search:focus{border-color:var(--gold);width:180px}
+.tbtn{font-family:inherit;font-size:12.5px;border:1px solid var(--line);background:#fff;color:var(--ink-2);padding:6px 12px;border-radius:7px;cursor:pointer;white-space:nowrap;font-weight:600;text-decoration:none}
+.tbtn:hover{border-color:var(--gold)}
+.tbtn.on{background:var(--dark);border-color:var(--dark);color:var(--gold)}
+@media (max-width:820px){.bar nav{display:none}}
+
+/* 布局 */
+.wrap{display:grid;grid-template-columns:206px 1fr;gap:36px;align-items:start;margin-top:26px}
+@media (max-width:1020px){.wrap{grid-template-columns:1fr;gap:0}.side{display:none}}
+.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;padding-right:4px;scrollbar-width:thin}
+.side::-webkit-scrollbar{width:4px}.side::-webkit-scrollbar-thumb{background:#d3d8e0;border-radius:4px}
+.side h4{font-family:"SF Mono","Menlo",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9aa3b2;margin:18px 0 7px;font-weight:700}
+.side h4:first-child{margin-top:0}
+.side a{display:block;font-size:12.5px;color:var(--ink-2);text-decoration:none;padding:5px 10px;border-radius:6px;border-left:2px solid transparent;transition:.16s;line-height:1.45}
+.side a:hover{background:var(--line-soft)}
+.side a.on{border-left-color:var(--gold);background:#fff;font-weight:700;color:var(--ink);box-shadow:0 1px 3px rgba(11,23,48,.08)}
+.side a .n{font-family:"SF Mono",monospace;font-size:10.5px;color:#9aa3b2;margin-right:6px}
+.side a.on .n{color:var(--orange)}
+
+/* 章节 */
+section.ch{margin-bottom:30px;scroll-margin-top:74px}
+.ch-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--dark)}
+.ch-head .no{font-family:"SF Mono",monospace;font-weight:700;font-size:26px;color:var(--gold);line-height:1}
+.ch-head h2{font-size:24px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.ch-head .en{font-family:"SF Mono",monospace;font-size:11.5px;color:var(--muted);background:var(--line-soft);padding:3px 8px;border-radius:5px}
+.ch-head .pg{font-family:"SF Mono",monospace;font-size:11.5px;color:var(--muted);margin-left:auto}
+.oneline{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:12px 16px;font-size:14px;color:var(--ink);line-height:1.7;margin-bottom:14px}
+.oneline b{color:var(--orange)}
+.blk-t{font-family:"SF Mono","Menlo",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9aa3b2;font-weight:700;margin:18px 0 9px;display:flex;align-items:center;gap:9px}
+.blk-t::after{content:"";flex:1;height:1px;background:var(--line)}
+.ideas{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+@media (max-width:760px){.ideas{grid-template-columns:1fr}}
+.ideas li{position:relative;padding-left:22px;font-size:13px;color:var(--ink-2);line-height:1.75}
+.ideas li::before{content:"";position:absolute;left:7px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.ideas li b{color:var(--ink);font-weight:700}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.tbl th{background:var(--bg);text-align:left;padding:9px 12px;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line-soft);color:var(--ink-2);line-height:1.6;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:#fafbfc}
+.tbl code{background:transparent;padding:0;font-size:12px}
+.tbl code b{color:var(--orange);font-weight:700}
+.tw{overflow-x:auto;margin-bottom:18px;-webkit-overflow-scrolling:touch}
+.two{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:9px}.two .ar{border-top:1px dashed var(--line);padding-top:9px}}
+.two .b{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:center}
+.two .b .tg{display:inline-block;font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:5px;margin-bottom:8px;font-weight:700;font-family:"SF Mono",monospace}
+.two .b.a .tg{background:var(--yellow-soft);color:#92400e}
+.two .b.b .tg{background:var(--purple-soft);color:#5b21b6}
+.two .b .vl{font-family:"SF Mono",monospace;font-size:16px;font-weight:600;color:var(--ink)}
+.two .b .ds{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+.two .ar{font-family:"SF Mono",monospace;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.6}
+.two .ar b{display:block;color:var(--gold-deep);font-size:12.5px}
+.flow{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.flow-r{display:grid;grid-template-columns:132px 1fr;border-bottom:1px solid var(--line-soft)}
+.flow-r:last-child{border-bottom:none}
+@media (max-width:700px){.flow-r{grid-template-columns:1fr}}
+.flow-r .k{background:var(--bg);padding:12px 14px;font-family:"SF Mono",monospace;font-size:12px;color:var(--gold-deep);font-weight:700}
+.flow-r .v{padding:12px 16px;font-size:13px;color:var(--ink-2);line-height:1.7}
+.flow-r .v b{background:var(--yellow-soft);color:#92400e;padding:1px 5px;border-radius:4px;font-weight:700}
+.errs{background:#fef2f2;border:1px solid var(--red-soft);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;margin-bottom:16px}
+.errs ol{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:5px}
+.errs li{font-size:13px;color:#7f1d1d;line-height:1.65}
+.errs code{background:#fee2e2;color:#991b1b}
+.errs li b{color:var(--red)}
+.take{background:#fffbeb;border:1px solid var(--yellow-soft);border-left:3px solid var(--gold);border-radius:8px;padding:14px 18px;margin-bottom:16px}
+.take .t{font-family:"SF Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:7px}
+.take .c{font-size:13.5px;color:var(--ink-2);line-height:1.8}
+.take .c b{color:var(--ink);font-weight:700}
+.quote{background:#fff;border:1px dashed var(--line);border-radius:10px;padding:13px 17px;margin-bottom:16px;font-size:13.5px;color:var(--ink-2);line-height:1.9}
+.quote .src{display:block;margin-top:8px;font-family:"SF Mono",monospace;font-size:11px;color:var(--muted)}
+.quote b{color:var(--orange)}
+
+/* stage 分隔 */
+.stage{margin:30px 0 22px;background:var(--dark);border-radius:14px;padding:20px 24px;color:var(--dark-ink);position:relative;overflow:hidden}
+.stage::after{content:"";position:absolute;right:-100px;top:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,195,67,.14),transparent 70%)}
+.stage-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.stage-h .sn{font-family:"SF Mono",monospace;font-size:12px;color:var(--gold);letter-spacing:.1em}
+.stage-h h2{font-size:21px;font-weight:800;color:#fff}
+.stage .lead{font-size:13.5px;color:#cfdaf2;margin:10px 0 12px;line-height:1.8;position:relative;z-index:1;max-width:760px}
+.stage .pts{display:grid;grid-template-columns:1fr 1fr;gap:7px 22px;list-style:none;position:relative;z-index:1}
+@media (max-width:760px){.stage .pts{grid-template-columns:1fr}}
+.stage .pts li{position:relative;padding-left:19px;font-size:12.5px;color:#b9c5e0;line-height:1.7}
+.stage .pts li::before{content:"";position:absolute;left:6px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.stage .pts b{color:#fff;font-weight:700}
+
+/* 复习模式 / 搜索 */
+body.review .blk-x{display:none}
+body.review .oneline{font-size:15.5px;border-left-width:5px}
+body.review .take .c{font-size:14.5px}
+.tipbar{display:none;background:#fffbeb;border:1px solid var(--yellow-soft);border-radius:10px;padding:12px 16px;font-size:12.5px;color:#78350f;margin-bottom:20px;line-height:1.7}
+body.review .tipbar{display:block}
+.tipbar b{color:var(--gold-deep)}
+.hidden{display:none !important}
+.totop{position:fixed;right:20px;bottom:20px;width:40px;height:40px;border-radius:50%;background:var(--dark);color:var(--gold);border:none;cursor:pointer;opacity:0;pointer-events:none;transition:.25s;font-size:16px;z-index:70}
+.totop.on{opacity:1;pointer-events:auto}
+
+/* 深色页脚 */
+.footer{margin-top:22px;background:var(--dark);border-radius:14px;padding:18px 24px;color:#cdd6ec;display:flex;align-items:center;gap:18px}
+.avatar{width:54px;height:54px;border-radius:50%;background:conic-gradient(from 210deg,#7c3aed,#3b82f6,#f6c343,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex:0 0 auto}
+.footer .who{font-weight:700;color:#fff;font-size:15px;margin-bottom:5px}
+.footer .desc{font-size:13px;line-height:1.8;color:#b9c5e0}
+.copyright{display:flex;justify-content:space-between;color:var(--muted);font-size:11.5px;margin-top:16px;letter-spacing:.05em;gap:12px;flex-wrap:wrap;font-family:"SF Mono","Menlo",monospace}
+.copyright b{color:#374151}
+
+/* ── 祝福横幅 ── */
+.dedication{margin:0 0 20px;padding:17px 24px;border-radius:14px;
+  background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);
+  border:1px solid var(--yellow-soft);border-left:4px solid var(--gold);
+  display:flex;align-items:center;gap:16px}
+.dedication .gift{font-size:30px;line-height:1;flex:0 0 auto}
+.dedication .tx{font-size:15.5px;color:#78350f;line-height:1.7;font-weight:700}
+.dedication .tx b{color:var(--gold-deep);font-weight:800}
+.dedication .from{font-family:"SF Mono","Menlo","Consolas",monospace;font-size:12px;color:#a16207;
+  margin-top:5px;letter-spacing:.06em;font-weight:400}
+@media (max-width:760px){ .dedication{padding:14px 16px;gap:12px}
+  .dedication .gift{font-size:24px} .dedication .tx{font-size:14px} }
+
+/* ── 朗读（TTS）── */
+.spk-hd{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--muted);cursor:pointer;font-size:10px;line-height:1;display:inline-flex;
+  align-items:center;justify-content:center;padding:0;transition:.18s;flex:0 0 auto;margin-left:4px}
+.spk-hd:hover{border-color:var(--gold);color:var(--gold-deep);background:#fffbeb}
+.spk-hd.playing{border-color:var(--gold);background:var(--gold);color:#1a1300;
+  animation:spk-pulse 1.1s ease-in-out infinite}
+.stage .spk-hd{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#f6e3ae}
+.stage .spk-hd:hover{background:rgba(246,195,67,.24);border-color:var(--gold);color:#fff}
+.intro .spk-hd{vertical-align:-5px;margin-left:8px}
+.spk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--muted);cursor:pointer;font-size:12px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;transition:.18s;padding:0}
+.spk:hover{border-color:var(--gold);color:var(--gold-deep);background:#fffbeb}
+.spk.playing{border-color:var(--gold);background:var(--gold);color:#1a1300;
+  animation:spk-pulse 1.1s ease-in-out infinite}
+@keyframes spk-pulse{0%,100%{box-shadow:0 0 0 0 rgba(246,195,67,.55)}50%{box-shadow:0 0 0 6px rgba(246,195,67,0)}}
+
+/* 子章节标题朗读钮（blk-t 为 flex 行，按钮跟在文字后、分隔线前） */
+.blk-t .spk-hd{margin-left:2px}
+/* 英文例句点击精听 */
+.blk-x .en,.oneline .en,.take .c .en{cursor:pointer;border-bottom:1px dashed transparent;transition:.15s}
+.blk-x .en:hover,.oneline .en:hover,.take .c .en:hover{color:var(--gold-deep);border-bottom-color:var(--gold)}
+.en.speaking{color:var(--gold-deep);border-bottom-color:var(--gold)!important}
+
+/* 章节朗读按钮 */
+.ch-btn{font-family:inherit;font-size:11.5px;font-weight:600;border:1px solid var(--line);background:#fff;
+  color:var(--ink-2);padding:4px 11px;border-radius:6px;cursor:pointer;display:inline-flex;
+  align-items:center;gap:5px;transition:.18s;white-space:nowrap}
+.ch-btn:hover{border-color:var(--gold);color:var(--gold-deep)}
+.ch-btn.playing{border-color:var(--gold);background:var(--gold);color:#1a1300}
+
+/* 工具栏朗读面板 */
+.tts-panel{position:absolute;top:44px;right:0;width:302px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;box-shadow:0 14px 40px -10px rgba(11,23,48,.28);padding:16px 18px;z-index:80;
+  display:none;line-height:1.5;text-align:left}
+.tts-panel.on{display:block}
+.tts-panel h4{font-family:"SF Mono","Menlo",monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 9px}
+.tts-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12.5px;color:var(--ink-2)}
+.tts-row label{flex:0 0 62px;color:var(--muted);font-size:12px}
+.tts-row select{flex:1;font-family:inherit;font-size:12px;border:1px solid var(--line);background:#fff;
+  border-radius:6px;padding:5px 7px;color:var(--ink);outline:none;min-width:0}
+.tts-row input[type=range]{flex:1;accent-color:var(--gold);height:4px}
+.tts-row .val{font-family:"SF Mono",monospace;font-size:12px;color:var(--ink);flex:0 0 30px;text-align:right}
+.tts-note{font-size:11.5px;color:var(--muted);line-height:1.65;border-top:1px solid var(--line);
+  padding-top:10px;margin-top:4px}
+.tts-note b{color:var(--gold-deep)}
+.tts-note.warn{color:#b45309}
+.tts-acts{display:flex;gap:8px;margin-top:11px}
+
+/* 悬浮迷你播放器 */
+.mini{position:fixed;left:20px;bottom:20px;width:290px;max-width:calc(100vw - 40px);
+  background:var(--dark);color:#cdd6ec;border-radius:12px;padding:12px 14px;z-index:75;
+  box-shadow:0 14px 40px -10px rgba(11,23,48,.5);display:none}
+.mini.on{display:block}
+.mini-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.mini-top .st{font-family:"SF Mono","Menlo",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);font-weight:700}
+.mini-top .sp{flex:1;height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.mini-top .sp i{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
+.mini-btn{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);color:#fff;
+  width:26px;height:26px;border-radius:6px;cursor:pointer;font-size:11px;display:flex;
+  align-items:center;justify-content:center;padding:0}
+.mini-btn:hover{background:rgba(255,255,255,.20)}
+.mini-body{font-size:12px;line-height:1.6;color:#b9c5e0;max-height:56px;overflow:hidden}
+.mini-body .lang{font-family:"SF Mono",monospace;font-size:10px;color:var(--gold);letter-spacing:.08em;
+  display:block;margin-bottom:2px}
+@media (max-width:720px){ .mini{left:12px;right:12px;width:auto;bottom:12px} }
+
+/* ══ 打印 / 导出 PDF（@media print）══
+   目标：全部内容完整输出且可读、排版连续不留整页空白。
+   ① 界面件全隐藏；② 布局摊平（无固定/粘性/滚动容器）；
+   ③ 深色块转浅色印刷（不依赖打印对话框的“背景图形”选项）；
+   ④ 连续排版：章节相接不留白，只防小单元（结论条/引用/卡片/表格行）被拦腰切断 */
+@media print{
+  .bar,.tools,.side,#mini,#totop,#ttsPanel,.tts-panel,.tbtn,.spk,.spk-hd,.ch-btn,
+  #nav,#search,#reviewBtn,.tipbar,.hero-note,.hero .tools{display:none!important}
+  html,body{background:#fff!important;height:auto!important;overflow:visible!important}
+  .page,.wrap,main{width:auto!important;max-width:none!important;height:auto!important;overflow:visible!important;display:block!important;padding:0!important;margin:0 auto!important}
+  *{box-shadow:none!important;text-shadow:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  p,li{orphans:2;widows:2}
+  .hero,.stage,.summary,.dedication{background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-left:4px solid var(--gold)!important;border-radius:8px!important}
+  /* 深色页脚同样需要转浅色：.footer 是 background:var(--dark) + 浅色文字，
+     原先的深色转换列表只覆盖 hero/stage/summary/dedication，漏掉页脚会导致
+     无背景打印时页脚文字近乎不可见（2026-10-07 补） */
+  .footer{background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-left:4px solid var(--gold)!important;border-radius:8px!important}
+  .footer .who{color:var(--ink)!important}
+  .footer .desc{color:var(--ink-2)!important}
+  .hero::after,.summary::after,.stage::after{display:none!important}
+  .hero h1{background:none!important;-webkit-text-fill-color:var(--ink)!important;color:var(--ink)!important;font-size:30px!important}
+  .hero .sub{color:var(--ink-2)!important}
+  .hero .kicker,.lead-line{color:var(--muted)!important}
+  .lead-line b,.hero .intro b,.sum-row .tx b{color:var(--gold-deep)!important}
+  .hero .intro{background:var(--line-soft)!important;border:1px solid var(--line)!important;border-left:4px solid var(--gold)!important;color:var(--ink-2)!important}
+  .summary .top h2,.stage-h h2,.stage .pts b{color:var(--ink)!important}
+  .sum-row .tx,.stage .lead,.stage .pts li{color:var(--ink-2)!important}
+  .sum-row{border-bottom:1px dashed var(--line)!important}
+  .badge-issue{color:var(--gold-deep)!important;border-color:var(--gold)!important}
+  .stage-h .sn,.sum-row .no{color:var(--gold-deep)!important}
+  section.ch,.summary,.stage{break-before:auto!important;margin-top:14px!important}
+  .cell,.hl .card,.two,.take,.quote,.sum-row,.flow-r,.ch-head,tr{break-inside:avoid}
+  .ch-head,.blk-t,.stage-h,.summary .top{break-after:avoid}
+  a{color:inherit;text-decoration:none}
+}
+
+
+/* ── 深刊周报风格（briefing-deck）· 零外链单文件 ── */
+:root{
+  --bg:#f4f5f7; --card:#fff;
+  --ink:#0b1220; --ink-2:#1f2937; --muted:#6b7280; --line:#e5e7eb; --line-soft:#f1f3f6;
+  --dark:#0b1730; --dark-2:#111d3a; --dark-ink:#e5ecff; --dark-muted:#c9d4ee; --dark-line:rgba(255,255,255,.08);
+  --gold:#f6c343; --gold-deep:#c9971f;
+  --red:#ef4444; --green:#22c55e; --blue:#3b82f6;
+  --purple:#8b5cf6; --orange:#f59e0b; --teal:#14b8a6; --pink:#ec4899;
+  --yellow-soft:#fde68a; --red-soft:#fecaca; --green-soft:#bbf7d0;
+  --blue-soft:#bfdbfe; --purple-soft:#ddd6fe; --orange-soft:#fed7aa;
+  --teal-soft:#99f6e4; --pink-soft:#fbcfe8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",
+  "Helvetica Neue",Helvetica,Arial,"Noto Sans CJK SC","Source Han Sans SC",sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.mono,.num,.idx,.lbl,.date,.lead-line,.copyright,.kicker,.badge-issue{font-family:"SF Mono","Menlo","Consolas","Courier New",monospace}
+code{font-family:"SF Mono","Menlo","Consolas",monospace;background:var(--line-soft);padding:1px 5px;border-radius:4px;font-size:12.5px;color:var(--ink-2)}
+.page{width:1200px;margin:0 auto;padding:36px 48px 48px}
+@media (max-width:1260px){.page{width:auto;max-width:1200px;padding:28px 20px 40px}}
+
+/* HERO */
+.hero{position:relative;background:radial-gradient(1200px 600px at 100% 0%,#1b2a55 0%,#0b1730 60%);
+  color:#fff;border-radius:18px;padding:28px 36px 30px;overflow:hidden;margin-bottom:20px}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(246,195,67,.18),transparent 70%);pointer-events:none}
+.hero .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+.hero .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dark-muted)}
+.badge-issue{border:1px solid rgba(246,195,67,.55);color:var(--gold);padding:4px 12px;border-radius:999px;font-weight:600;font-size:12.5px;white-space:nowrap}
+.hero h1{margin:18px 0 6px;font-size:54px;line-height:1.1;font-weight:900;letter-spacing:.5px;
+  background:linear-gradient(90deg,#fff 0%,#f6c343 60%);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;z-index:1}
+.hero .sub{font-size:20px;font-weight:700;color:#fff;margin:2px 0 12px;position:relative;z-index:1}
+.lead-line{font-size:14px;color:var(--dark-muted);margin-bottom:18px;position:relative;z-index:1;line-height:1.9}
+.lead-line b{color:var(--gold);font-weight:700}
+.hero .intro{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--gold);
+  border-radius:8px;padding:14px 18px;color:#dce5fb;font-size:13.5px;line-height:1.8;position:relative;z-index:1}
+.hero .intro b{color:var(--gold);font-weight:700}
+.hero-note{display:flex;align-items:center;gap:10px;margin-top:16px;background:rgba(246,195,67,.10);
+  border:1px solid rgba(246,195,67,.30);border-radius:10px;padding:11px 16px;color:#f6e3ae;font-size:13px;position:relative;z-index:1;line-height:1.7}
+.hero-note .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(246,195,67,.7);flex:0 0 auto}
+@media (max-width:760px){.hero{padding:22px 20px 24px}.hero h1{font-size:31px}.hero .sub{font-size:16px}}
+
+/* 三栏 KPI */
+.hl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:18px}
+@media (max-width:860px){.hl{grid-template-columns:1fr}}
+.hl .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;transition:.2s}
+.hl .card:hover{border-color:var(--gold);box-shadow:0 6px 20px -8px rgba(11,23,48,.22);transform:translateY(-2px)}
+.num{font-weight:700;font-size:34px;line-height:1;letter-spacing:-.02em}
+.num.c-blue{color:var(--blue)} .num.c-gold{color:var(--orange)} .num.c-red{color:var(--red)}
+.num.c-purple{color:var(--purple)} .num.c-teal{color:var(--teal)} .num.c-green{color:var(--green)}
+.hl .card .tt{font-size:15px;font-weight:700;color:var(--ink);margin:2px 0 6px}
+.hl .card .dd{font-size:12.5px;color:var(--muted);line-height:1.7}
+
+/* 章节头 */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin:34px 0 12px;gap:20px;flex-wrap:wrap}
+.sec-head .lbl{font-size:12px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;display:block}
+.sec-head h2{font-size:25px;font-weight:800;letter-spacing:-.01em;margin:4px 0 0;color:var(--ink)}
+.sec-head .date{font-size:12px;color:var(--ink-2);text-align:right;line-height:1.6;white-space:nowrap}
+.intro{background:#fff;border:1px solid var(--line);border-left:4px solid var(--dark);border-radius:8px;padding:14px 18px;color:var(--ink-2);font-size:13.5px;line-height:1.8}
+.intro b{color:var(--ink)}
+
+/* 胶囊标签 */
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;color:#111827}
+.tag-blue{background:var(--blue-soft)} .tag-gold{background:var(--yellow-soft)} .tag-red{background:var(--red-soft)}
+.tag-green{background:var(--green-soft)} .tag-purple{background:var(--purple-soft)}
+.tag-orange{background:var(--orange-soft)} .tag-teal{background:var(--teal-soft)} .tag-pink{background:var(--pink-soft)}
+.pill{background:var(--gold);color:#1a1300;font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 10px;border-radius:6px}
+
+/* 卡片网格 */
+.grid6{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px}
+@media (max-width:980px){.grid6{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.grid6{grid-template-columns:1fr}}
+.cell{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:7px;transition:.2s;text-decoration:none;color:inherit}
+.cell:hover{border-color:var(--gold);box-shadow:0 8px 24px -10px rgba(11,23,48,.25);transform:translateY(-2px)}
+.cell .idx{font-weight:700;color:#c9d1de;font-size:13px}
+.cell .tt{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4}
+.cell .oneline{font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.cell .arrow{font-size:12.5px;color:var(--muted);background:var(--line-soft);border-radius:8px;padding:8px 11px;line-height:1.6;margin-top:auto}
+.cell .arrow b{color:var(--ink)}
+
+/* 对比双栏 */
+.two{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:9px}.two .ar{border-top:1px dashed var(--line);padding-top:9px}}
+.two .b{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:center}
+.two .b .tg{display:inline-block;font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:5px;margin-bottom:8px;font-weight:700;font-family:"SF Mono",monospace}
+.two .b.a .tg{background:var(--yellow-soft);color:#92400e}
+.two .b.b .tg{background:var(--purple-soft);color:#5b21b6}
+.two .b .vl{font-family:"SF Mono",monospace;font-size:16px;font-weight:600;color:var(--ink)}
+.two .b .ds{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+.two .ar{font-family:"SF Mono",monospace;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.6}
+.two .ar b{display:block;color:var(--gold-deep);font-size:12.5px}
+
+/* 深色总结 */
+.summary{margin-top:26px;background:var(--dark);color:var(--dark-ink);border-radius:14px;padding:20px 24px;position:relative;overflow:hidden}
+.summary::after{content:"";position:absolute;right:-100px;top:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,195,67,.14),transparent 70%)}
+.summary .top{display:flex;align-items:center;gap:10px;margin-bottom:12px;border-bottom:1px solid var(--dark-line);padding-bottom:12px;flex-wrap:wrap;position:relative;z-index:1}
+.summary .top h2{font-size:19px;font-weight:800;color:#fff}
+.sum-row{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed var(--dark-line);position:relative;z-index:1}
+.sum-row:last-child{border-bottom:none}
+.sum-row .no{font-family:"SF Mono","Menlo",monospace;font-weight:700;color:var(--gold);flex:0 0 auto;font-size:14px}
+.sum-row .tx{color:#cfdaf2;font-size:13.5px;line-height:1.75}
+.sum-row .tx b{color:var(--gold);font-weight:700}
+
+/* 深色页脚 */
+.footer{margin-top:22px;background:var(--dark);border-radius:14px;padding:18px 24px;color:#cdd6ec;display:flex;align-items:center;gap:18px}
+.avatar{width:54px;height:54px;border-radius:50%;background:conic-gradient(from 210deg,#7c3aed,#3b82f6,#f6c343,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex:0 0 auto}
+.footer .who{font-weight:700;color:#fff;font-size:15px;margin-bottom:5px}
+.footer .desc{font-size:13px;line-height:1.8;color:#b9c5e0}
+.copyright{display:flex;justify-content:space-between;color:var(--muted);font-size:11.5px;margin-top:16px;letter-spacing:.05em;gap:12px;flex-wrap:wrap;font-family:"SF Mono","Menlo",monospace}
+.copyright b{color:#374151}
+
+/* ── 祝福横幅 ── */
+.dedication{margin:0 0 20px;padding:17px 24px;border-radius:14px;
+  background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);
+  border:1px solid var(--yellow-soft);border-left:4px solid var(--gold);
+  display:flex;align-items:center;gap:16px}
+.dedication .gift{font-size:30px;line-height:1;flex:0 0 auto}
+.dedication .tx{font-size:15.5px;color:#78350f;line-height:1.7;font-weight:700}
+.dedication .tx b{color:var(--gold-deep);font-weight:800}
+.dedication .from{font-family:"SF Mono","Menlo","Consolas",monospace;font-size:12px;color:#a16207;
+  margin-top:5px;letter-spacing:.06em;font-weight:400}
+@media (max-width:760px){ .dedication{padding:14px 16px;gap:12px}
+  .dedication .gift{font-size:24px} .dedication .tx{font-size:14px} }
+
+/* ── 朗读（TTS）── */
+.spk-hd{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--muted);cursor:pointer;font-size:10px;line-height:1;display:inline-flex;
+  align-items:center;justify-content:center;padding:0;transition:.18s;flex:0 0 auto;margin-left:4px}
+.spk-hd:hover{border-color:var(--gold);color:var(--gold-deep);background:#fffbeb}
+.spk-hd.playing{border-color:var(--gold);background:var(--gold);color:#1a1300;
+  animation:spk-pulse 1.1s ease-in-out infinite}
+.summary .spk-hd{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#f6e3ae}
+.summary .spk-hd:hover{background:rgba(246,195,67,.24);border-color:var(--gold);color:#fff}
+.intro .spk-hd{vertical-align:-5px;margin-left:8px}
+.hero .intro .spk-hd{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#f6e3ae}
+.hero .intro .spk-hd:hover{background:rgba(246,195,67,.24);border-color:var(--gold);color:#fff}
+.spk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--muted);cursor:pointer;font-size:12px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;transition:.18s;padding:0}
+.spk:hover{border-color:var(--gold);color:var(--gold-deep);background:#fffbeb}
+.spk.playing{border-color:var(--gold);background:var(--gold);color:#1a1300;
+  animation:spk-pulse 1.1s ease-in-out infinite}
+@keyframes spk-pulse{0%,100%{box-shadow:0 0 0 0 rgba(246,195,67,.55)}50%{box-shadow:0 0 0 6px rgba(246,195,67,0)}}
+.hl .card{position:relative;padding-right:40px}
+.hl .card .spk{position:absolute;top:14px;right:14px}
+.cell{position:relative;padding-right:40px}
+.cell .spk{position:absolute;top:12px;right:12px;z-index:2}
+
+/* 章节朗读按钮 */
+.ch-btn{font-family:inherit;font-size:11.5px;font-weight:600;border:1px solid var(--line);background:#fff;
+  color:var(--ink-2);padding:4px 11px;border-radius:6px;cursor:pointer;display:inline-flex;
+  align-items:center;gap:5px;transition:.18s;white-space:nowrap}
+.ch-btn:hover{border-color:var(--gold);color:var(--gold-deep)}
+.ch-btn.playing{border-color:var(--gold);background:var(--gold);color:#1a1300}
+
+/* 顶部工具钮（深色 hero 上的朗读/精读页入口） */
+.tbtn{font-family:inherit;font-size:12.5px;border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);color:#f2f5fb;padding:6px 12px;border-radius:7px;
+  cursor:pointer;white-space:nowrap;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;transition:.18s}
+.tbtn:hover{border-color:var(--gold);color:var(--gold)}
+.tbtn.on{background:var(--gold);border-color:var(--gold);color:#1a1300}
+
+/* 工具栏朗读面板 */
+.tts-panel{position:absolute;top:40px;right:0;width:302px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;box-shadow:0 14px 40px -10px rgba(11,23,48,.28);padding:16px 18px;z-index:80;
+  display:none;line-height:1.5;text-align:left}
+.tts-panel.on{display:block}
+.tts-panel h4{font-family:"SF Mono","Menlo",monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 9px}
+.tts-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12.5px;color:var(--ink-2)}
+.tts-row label{flex:0 0 62px;color:var(--muted);font-size:12px}
+.tts-row select{flex:1;font-family:inherit;font-size:12px;border:1px solid var(--line);background:#fff;
+  border-radius:6px;padding:5px 7px;color:var(--ink);outline:none;min-width:0}
+.tts-row input[type=range]{flex:1;accent-color:var(--gold);height:4px}
+.tts-row .val{font-family:"SF Mono",monospace;font-size:12px;color:var(--ink);flex:0 0 30px;text-align:right}
+.tts-note{font-size:11.5px;color:var(--muted);line-height:1.65;border-top:1px solid var(--line);
+  padding-top:10px;margin-top:4px}
+.tts-note b{color:var(--gold-deep)}
+/* 面板内的按钮恢复浅色底 */
+.tts-panel .tbtn{border:1px solid var(--line);background:#fff;color:var(--ink-2)}
+.tts-panel .tbtn:hover{border-color:var(--gold);color:var(--gold-deep)}
+.tts-note.warn{color:#b45309}
+.tts-acts{display:flex;gap:8px;margin-top:11px}
+
+/* 悬浮迷你播放器 */
+.mini{position:fixed;left:20px;bottom:20px;width:290px;max-width:calc(100vw - 40px);
+  background:var(--dark);color:#cdd6ec;border-radius:12px;padding:12px 14px;z-index:75;
+  box-shadow:0 14px 40px -10px rgba(11,23,48,.5);display:none}
+.mini.on{display:block}
+.mini-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.mini-top .st{font-family:"SF Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);font-weight:700}
+.mini-top .sp{flex:1;height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.mini-top .sp i{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
+.mini-btn{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);color:#fff;
+  width:26px;height:26px;border-radius:6px;cursor:pointer;font-size:11px;display:flex;
+  align-items:center;justify-content:center;padding:0}
+.mini-btn:hover{background:rgba(255,255,255,.20)}
+.mini-body{font-size:12px;line-height:1.6;color:#b9c5e0;max-height:56px;overflow:hidden}
+.mini-body .lang{font-family:"SF Mono",monospace;font-size:10px;color:var(--gold);letter-spacing:.08em;
+  display:block;margin-bottom:2px}
+@media (max-width:720px){ .mini{left:12px;right:12px;width:auto;bottom:12px} }
+
+/* ══ 打印 / 导出 PDF（@media print）══
+   目标：全部内容完整输出且可读、排版连续不留整页空白。
+   ① 界面件全隐藏；② 布局摊平（无固定/粘性/滚动容器）；
+   ③ 深色块转浅色印刷（不依赖打印对话框的“背景图形”选项）；
+   ④ 连续排版：章节相接不留白，只防小单元（结论条/引用/卡片/表格行）被拦腰切断 */
+@media print{
+  .bar,.tools,.side,#mini,#totop,#ttsPanel,.tts-panel,.tbtn,.spk,.spk-hd,.ch-btn,
+  #nav,#search,#reviewBtn,.tipbar,.hero-note,.hero .tools{display:none!important}
+  html,body{background:#fff!important;height:auto!important;overflow:visible!important}
+  .page,.wrap,main{width:auto!important;max-width:none!important;height:auto!important;overflow:visible!important;display:block!important;padding:0!important;margin:0 auto!important}
+  *{box-shadow:none!important;text-shadow:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  p,li{orphans:2;widows:2}
+  .hero,.stage,.summary,.dedication{background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-left:4px solid var(--gold)!important;border-radius:8px!important}
+  /* 深色页脚同样需要转浅色：.footer 是 background:var(--dark) + 浅色文字，
+     原先的深色转换列表只覆盖 hero/stage/summary/dedication，漏掉页脚会导致
+     无背景打印时页脚文字近乎不可见（2026-10-07 补） */
+  .footer{background:#fff!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-left:4px solid var(--gold)!important;border-radius:8px!important}
+  .footer .who{color:var(--ink)!important}
+  .footer .desc{color:var(--ink-2)!important}
+  .hero::after,.summary::after,.stage::after{display:none!important}
+  .hero h1{background:none!important;-webkit-text-fill-color:var(--ink)!important;color:var(--ink)!important;font-size:30px!important}
+  .hero .sub{color:var(--ink-2)!important}
+  .hero .kicker,.lead-line{color:var(--muted)!important}
+  .lead-line b,.hero .intro b,.sum-row .tx b{color:var(--gold-deep)!important}
+  .hero .intro{background:var(--line-soft)!important;border:1px solid var(--line)!important;border-left:4px solid var(--gold)!important;color:var(--ink-2)!important}
+  .summary .top h2,.stage-h h2,.stage .pts b{color:var(--ink)!important}
+  .sum-row .tx,.stage .lead,.stage .pts li{color:var(--ink-2)!important}
+  .sum-row{border-bottom:1px dashed var(--line)!important}
+  .badge-issue{color:var(--gold-deep)!important;border-color:var(--gold)!important}
+  .stage-h .sn,.sum-row .no{color:var(--gold-deep)!important}
+  section.ch,.summary,.stage{break-before:auto!important;margin-top:14px!important}
+  .cell,.hl .card,.two,.take,.quote,.sum-row,.flow-r,.ch-head,tr{break-inside:avoid}
+  .ch-head,.blk-t,.stage-h,.summary .top{break-after:avoid}
+  a{color:inherit;text-decoration:none}
+}
+
+
+/* ---- merge fixes ---- */
+.bar .tbtn{border:1px solid var(--line);background:#fff;color:var(--ink-2)}
+.bar .tbtn:hover{border-color:var(--gold)}
+.bar .tbtn.on{background:var(--dark);border-color:var(--dark);color:var(--gold)}
+.bar .tts-panel .tbtn{border:1px solid var(--line);background:#fff;color:var(--ink-2)}
+.bar .tts-panel .tbtn:hover{border-color:var(--gold)}
+.cell .oneline{background:none;border:0;border-radius:0;padding:0;margin-bottom:0;color:var(--ink-2);font-size:13.5px}
+
+</style>
+</head>
+<body>
+<div class="page">
+<div class="bar"><div class="bar-in">
+    <a class="brand" href="#birdseye"><i></i>雅思一月通 听力胜典 · 简报</a>
+    <nav id="nav">
+      <a href="#preface">序</a><a href="#w1-overview">第一周</a><a href="#w1-jijing">机经场景</a><a href="#w1-diagram">图示题</a><a href="#w2-gapfill">填空题</a><a href="#w3-choice">选择题</a><a href="#w4-mock">第四周</a><a href="#ap1-keys">附录一</a><a href="#ap23-jijing">附录二·三</a>
+    </nav>
+    <div class="tools" style="position:relative">
+      <button class="tbtn" id="ttsBtn" title="朗读设置">🔊 朗读</button>
+      <input id="search" type="search" placeholder="搜索关键词…">
+      <button class="tbtn" id="reviewBtn">复习模式</button>
+      <a class="tbtn" href="#birdseye">鸟瞰速览</a>
+      <div class="tts-panel" id="ttsPanel">
+        <h4>朗读设置 · Text to Speech</h4>
+        <div class="tts-row"><label>朗读顺序</label>
+          <select id="ttsOrder"><option value="enzh">英文 → 中文</option>
+            <option value="zh-en">中文 → 英文</option></select></div>
+        <div class="tts-row"><label>语速</label>
+          <input id="ttsRate" type="range" min="0.6" max="1.5" step="0.1" value="1">
+          <span class="val" id="ttsRateV">1.0×</span></div>
+        <div class="tts-row"><label>章节范围</label><select id="ttsScope"><option value="core">核心（导语+要点+结论）</option><option value="full">完整（+步骤流与对照块）</option><option value="text">纯文字（导语+要点）</option></select></div>
+        <div class="tts-row"><label>英文音色</label><select id="ttsEn"></select></div>
+        <div class="tts-row"><label>中文音色</label><select id="ttsZh"></select></div>
+        <div class="tts-acts"><button class="tbtn" id="ttsTest">▶ 试听</button></div>
+        <div class="tts-note" id="ttsStatus">正在检测语音引擎…</div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="top">
+      <span class="kicker">微信读书 · 杨凡 等编著 · 2018 · 雅思听力应试 · BRIEFING</span>
+      <span class="badge-issue">简报 · 简山出品</span>
+      <div class="tools" style="position:relative;display:flex;gap:8px"><a class="tbtn" href="#preface" style="text-decoration:none">开始精读 →</a></div>
+    </div>
+    <h1>雅思一月通 · 听力胜典</h1>
+    <div class="sub">四周听力冲刺 · 题型 × 场景 × 机经 · IELTS Listening</div>
+    <div class="lead-line">
+      先懂考试（评分/规则/潜规则） → 再练题型（填空·选择·图示） → 用机经十场景把考点背成条件反射<br>
+      核心主张：<b>听力不是靠“听懂全文”，而是靠“读指令、抓词性、认场景”三件套</b>
+    </div>
+    <div class="intro" data-tts="intro">
+      杨凡（被学生称“雅思第一人”，2000 年起教雅思）设计的<b>四周冲刺体系</b>：第一周讲清考试与机经用法，第二至四周分题型、分场景刷练，三篇附录给出答案原文与高频词表。<b>填空题占 40 题的 60%–70%</b>，是全书重心；核心方法“<b>无词听力法</b>”把每道空拆成“定位 → 预测词性 → 按词性抓答案”。全 11 章经微信读书登录后逐节采集原文（含附录一听力原文、附录三词表），均为正文级。本页按原书结构逐周拆解：序（丛书序+本书序）/ 第一周（概述、机经十场景、图示题）/ 第二周（填空题）/ 第三周（选择题·配对题）/ 第四周（综合模拟）/ 三附录（答案原文、机经选编、高频词表）。全书 11 章均经微信读书登录后逐节采集原文，<b>全部正文级（含附录一听力原文与附录三词表）</b>；题型体系、考位分布、评分换算、答题指令四张表来自书内图示精读。用右上角<b>搜索</b>定位概念，用<b>复习模式</b>折叠细节只留骨架。<button class="spk-hd" title="朗读简介" aria-label="朗读简介">🔊</button>
+    </div>
+    <div class="hero-note"><span class="dot"></span>
+      <span>上半页为鸟瞰速览（每张卡片一句核心 + 一句结论），下半页为分篇精读（逐章要点与原文摘录）；右上角吸顶栏可跳转各章、搜索关键词、开启复习模式。</span></div>
+  </div>
+  <div class="dedication" data-tts="dedication"><button class="spk-hd" title="朗读" aria-label="朗读">🔊</button><span class="gift">🎁</span><div><div class="tx">一月冲刺，<b>稳扎稳打</b></div><div class="from">简山 · 读书简报</div></div></div>
+<!-- 三栏 KPI -->
+  <div class="hl">
+    <div class="card"><button class="spk" title="朗读本卡" aria-label="朗读本卡">🔊</button><div class="num c-blue">01</div>
+      <div><div class="tt">输入筑基 · 考试认知</div>
+        <div class="dd">先搞清 4 段录音、40 分钟只听一遍、40 题评分与 7 分线（对 30–33 题），再谈技巧。</div></div></div>
+    <div class="card"><button class="spk" title="朗读本卡" aria-label="朗读本卡">🔊</button><div class="num c-gold">02</div>
+      <div><div class="tt">方法转化 · 三大题型</div>
+        <div class="dd">填空题（占 60–70%，6 子类）、选择题（单/多/配对）、图示题（地图/标签/流程图）各自成套打法。</div></div></div>
+    <div class="card"><button class="spk" title="朗读本卡" aria-label="朗读本卡">🔊</button><div class="num c-purple">03</div>
+      <div><div class="tt">场景机经 · 十高频场景</div>
+        <div class="dd">机经按场景学而非按 Version 背；租房/旅游/学术/医疗/环保等十场景覆盖 1000+ section 考点。</div></div></div>
+  </div>
+
+  <!-- ② 浅色区 -->
+  <div class="sec-head" id="birdseye">
+    <div><span class="lbl">BOOK MAP</span><h2>全书地图 · 四周一轴</h2></div>
+    <div class="date">机械工业出版社 · 2018-01<br>237,824 字 · 4 周 × 5 天 + 3 附录</div>
+  </div>
+  <div class="intro" data-tts="intro">
+    主线：<b>序（备考总纲）→ 第一周（概述 + 机经十场景 + 图示题）→ 第二周（填空题）→ 第三周（选择题·配对题）→ 第四周（综合模拟）→ 附录（答案原文 / 机经选编 / 高频词表）</b>。全书把一个月拆到每一天，周一到周五排内容、周末不排，保证张弛有度。<button class="spk-hd" title="朗读全书主线" aria-label="朗读全书主线">🔊</button>
+  </div>
+
+  <div class="grid6">
+    <a class="cell" href="#preface">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>序</div>
+      <div><span class="tag tag-gold">备考总纲</span></div>
+      <div class="tt">丛书序 + 本书序</div>
+      <div class="oneline">丛书序四段式（先学词汇→向 7 分冲击→一个月提高→合理安排进度），本书序用四问定调“先懂考试再练方法”。</div>
+      <div class="arrow">→ 结论：词汇是本、7 分是线、进度到天、劳逸结合。</div>
+    </a>
+    <a class="cell" href="#w1-overview">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>01</div>
+      <div><span class="tag tag-blue">认知筑基</span></div>
+      <div class="tt">第一周 Day1 · 听力概述与评分规则</div>
+      <div class="oneline">4 段录音（S1 最易→S4 最难）、40 分钟只听一遍；40 题评分、7 分=对 30–33；三条“潜规则”决定成败。</div>
+      <div class="arrow">→ 结论：做题第一步不是听，是读指令（几词/能否填数字/大小写）。</div>
+    </a>
+    <a class="cell" href="#w1-jijing">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>02</div>
+      <div><span class="tag tag-teal">方法核心</span></div>
+      <div class="tt">第一周 Day2–4 · 机经场景学习法</div>
+      <div class="oneline">机经是“民间题库”，按 10 大高频场景学习；每个场景固化一套必考词与考点维度。</div>
+      <div class="arrow">→ 结论：按场景背考点，考场听到场景即可预判答案范围。</div>
+    </a>
+    <a class="cell" href="#w1-diagram">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>03</div>
+      <div><span class="tag tag-orange">图示题</span></div>
+      <div class="tt">第一周 Day5 · 地图 / 流程图 / 标签题</div>
+      <div class="oneline">地图题靠起点与方位词、可借题号顺序；流程图当单句填空；标签题抓部位名。</div>
+      <div class="arrow">→ 结论：地图题靠字面硬对，不靠方位推理。</div>
+    </a>
+    <a class="cell" href="#w2-gapfill">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>04</div>
+      <div><span class="tag tag-purple">填空题</span></div>
+      <div class="tt">第二周 · 填空题（6 子类）</div>
+      <div class="oneline">填空占 40 题 60–70%，是得高分关键；核心“无词听力法”：定位→预测词性→按词性找答案。</div>
+      <div class="arrow">→ 结论：拿到填空表先标词性、圈名词，再用词性抓答案。</div>
+    </a>
+    <a class="cell" href="#w3-choice">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>05</div>
+      <div><span class="tag tag-red">选择题·配对</span></div>
+      <div class="tt">第三周 · 选择题与配对题</div>
+      <div class="oneline">选择题考“快速有效读题 + 同义替换辨析”，配“头尾/绝对性/替换”三原则；配对题考快速反应。</div>
+      <div class="arrow">→ 结论：听到原词≠答案，首选有替换关系的选项。</div>
+    </a>
+    <a class="cell" href="#w4-mock">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>06</div>
+      <div><span class="tag tag-green">实战冲刺</span></div>
+      <div class="tt">第四周 · 综合练习与模拟考试</div>
+      <div class="oneline">五天五套综合练习，按真实考试计时，练节奏、练心态、练整套难度分布。</div>
+      <div class="arrow">→ 结论：用整场计时把“技巧”练成“条件反射”。</div>
+    </a>
+    <a class="cell" href="#ap1-keys">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>07</div>
+      <div><span class="tag tag-pink">答案·原文</span></div>
+      <div class="tt">附录一 · 模拟题答案与听力原文</div>
+      <div class="oneline">汇总各套模拟题答案与完整听力原文，供对答案、精听、跟读、听写。</div>
+      <div class="arrow">→ 结论：做完题必回原文精听跟读，才是提分闭环。</div>
+    </a>
+    <a class="cell" href="#ap23-jijing">
+      <div class="idx"><button class="spk" title="朗读本章摘要" aria-label="朗读本章摘要">🔊</button>08</div>
+      <div><span class="tag tag-blue">机经·词汇</span></div>
+      <div class="tt">附录二/三 · 机经选编与高频词汇</div>
+      <div class="oneline">附录二按 Version 选编机经（Section 回忆+答案）；附录三按场景汇高频词表。</div>
+      <div class="arrow">→ 结论：词表按场景背，与第一周场景学习法首尾闭环。</div>
+    </a>
+  </div>
+
+  <!-- 对比双栏 -->
+  <div class="sec-head">
+    <div><span class="lbl">CORE CONTRAST</span><h2>两组关键对照</h2></div>
+  </div>
+  <div class="two">
+    <div class="b a"><span class="tg">按 Version 背机经</span><div class="vl">散点记忆</div>
+      <div class="ds">几十个版本跳来跳去、易乱易忘，考场想不起细节</div></div>
+    <div class="ar">机经学法对照<br><b>场景 > 版本</b></div>
+    <div class="b b"><span class="tg">按 10 大场景学</span><div class="vl">结构化记忆</div>
+      <div class="ds">同场景考点集中，听到场景即调出该场景词与答案套路</div></div>
+  </div>
+  <div class="two">
+    <div class="b a"><span class="tg">背单词表</span><div class="vl">认识</div>
+      <div class="ds">只记中文释义，听到仍反应不出、拼不出</div></div>
+    <div class="ar">听力词要求<br><b>听到 + 拼对</b></div>
+    <div class="b b"><span class="tg">听写练词</span><div class="vl">听写得出</div>
+      <div class="ds">用耳朵听单词、用手写单词，才能把分真正拿到</div></div>
+  </div>
+
+  <!-- ③ 深色收口 -->
+  <div class="summary" id="summary" data-tts="summary">
+    <div class="top"><span class="pill">SUMMARY</span><h2>五分钟带走全书</h2><button class="spk-hd" title="朗读五分钟总结" aria-label="朗读五分钟总结">🔊</button></div>
+    <div class="sum-row"><div class="no">01</div>
+      <div class="tx"><b>先懂考试</b> —— 4 段录音、40 分钟只听一遍、40 题评分、7 分=对 30–33；时间是最大敌人。</div></div>
+    <div class="sum-row"><div class="no">02</div>
+      <div class="tx"><b>读指令先行</b> —— 几词/能否填数字/填字母还是填词/什么格式，四件事先抄到卷面再开始听。</div></div>
+    <div class="sum-row"><div class="no">03</div>
+      <div class="tx"><b>填空题是重心</b> —— 占 60–70%；无词听力法“定位→预测词性→按词性抓答案”，先标词性圈名词。</div></div>
+    <div class="sum-row"><div class="no">04</div>
+      <div class="tx"><b>场景即考点</b> —— 十大高频场景（租房/旅游/休闲/学术/医疗/环保/动植物/科普/社会人文/生活万象）覆盖 1000+ section。</div></div>
+    <div class="sum-row"><div class="no">05</div>
+      <div class="tx"><b>规则会扣分</b> —— 单复数、大小写、word/number 三处细节若不合要求，写对也丢分。</div></div>
+  </div>
+
+    <div class="wrap">
+<aside class="side" id="side">
+      <h4>速览</h4>
+      <a href="#birdseye"><span class="n">图</span>全书地图 · 速览</a>
+      <a href="#summary"><span class="n">结</span>五分钟带走全书</a>
+
+      <h4>开篇</h4>
+      <a href="#preface"><span class="n">序</span>一个月备考总纲</a>
+      <h4>四周逐周</h4>
+      <a href="#w1-overview"><span class="n">01</span>第一周 · 听力概述与评分规则</a>
+      <a href="#w1-jijing"><span class="n">02</span>第一周 · 机经场景学习法</a>
+      <a href="#w1-diagram"><span class="n">03</span>第一周 · 地图/流程图/标签题</a>
+      <a href="#w2-gapfill"><span class="n">04</span>第二周 · 填空题——无词听力法</a>
+      <a href="#w3-choice"><span class="n">05</span>第三周 · 选择题与配对题</a>
+      <a href="#w4-mock"><span class="n">06</span>第四周 · 综合练习与模拟考试</a>
+      <h4>附录</h4>
+      <a href="#ap1-keys"><span class="n">07</span>附录一 · 答案与听力原文</a>
+      <a href="#ap23-jijing"><span class="n">08</span>附录二/三 · 机经选编与高频词汇</a>
+    </aside>
+
+        <main>
+<div class="tipbar">复习模式已开启：细节与摘录已折叠，只保留各章结论条与要点卡。点击任意要点卡的章节标题可展开对应正文（再点「复习模式」退出）。</div>
+
+  <!-- 前言 -->
+      <section class="ch" id="preface" data-title="序 一个月备考总纲">
+        <div class="ch-head"><span class="no">序</span><h2>序：一个月备考总纲（丛书序 + 本书序）</h2><span class="en">PREFACE</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">丛书序 + 本书序 · 正文级</span></div>
+        <div class="oneline">丛书序给出“先学词汇 → 向 7 分冲击 → 一个月提高 → 合理安排进度”的总纲；本书序用四问定调——<b>先懂考试，再练方法</b>。</div>
+        <div class="blk-x">
+          <div class="blk-t">丛书序 · 四段式（原文摘录）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li><b>先学词汇！</b> 词汇是语言学习的根本；可在词条边用“初记 / 掌握 / 应用”三级记号，层层筛选、缩短记词时间。</li>
+            <li><b>向 7 分冲击！</b> 考 6 分是必须的，但多数院校要 7 分或更高；本丛书用大量结合题型的实例，让“考 7 分是可行的”。</li>
+            <li><b>一个月迅速提高！</b> 按一个月备考编写，把知识点按天划分学习，辅助安排进度。</li>
+            <li><b>合理安排学习进度！</b> 不提倡废寝忘食；<b>周六、周日不安排学习内容</b>，张弛有度、临考前不过分紧张。</li>
+          </ul>
+          <div class="blk-t">本书序 · 备考四问（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>你了解雅思考试吗？</li>
+            <li>你知道它的得分要求吗？</li>
+            <li>你熟悉它的考点和出题方式吗？能在一遍录音中找出重点并正确记录吗？</li>
+            <li>当你没有理解文章的时候，你有办法猜出答案吗？</li>
+          </ul>
+          <div class="blk-t">本书定位（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>既可作入门书，也可作最后冲刺书；适合自学，也适合作课堂配套练习。</li>
+            <li>以 <b>4 周</b>为节点，每周一个重点，每种题型都有配套练习；按进度依次完成会有明显进步。</li>
+          </ul>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>词汇是本、7 分是线、进度到天、劳逸结合</b>。这套总纲针对整套“丛书”，本册的词汇落点是附录三。</div></div>
+      </section>
+
+      <!-- 第一周 Day1 -->
+      <section class="ch" id="w1-overview" data-title="第一周 Day1 听力概述与评分规则">
+        <div class="ch-head"><span class="no">01</span><h2>第一周 Day1：听力概述与评分规则</h2><span class="en">WEEK 1 · DAY 1</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">第一周 Day1 · 正文级</span></div>
+        <div class="oneline">雅思听力 = <b>4 段录音（S1 最易 → S4 最难）、40 分钟（30 听 + 10 誊写）、录音只放一遍</b>；40 题评分，<b>7 分 = 对 30–33 题</b>。</div>
+        <div class="blk-x">
+          <div class="blk-t">Q&amp;A · 六个必懂问题（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li><b>考什么</b>：4 段录音即 4 个 section；S1/S2 考 social English，S3 师生讨论课业，S4 模拟课堂讲座；S1/S3 多为对话，S2/S4 多为独白；难度递增。</li>
+            <li><b>考多久</b>：30 分钟听录音（答案先写在试卷上）+ 10 分钟誊写，共 40 分钟；录音只放一遍。</li>
+            <li><b>版本号</b>：每场考试有编码 Version，前两位多为年份，如 2010-01-09 考次为 Version 10117。</li>
+            <li><b>A/G 类</b>：A 类（学术）与 G 类（培训）用同一份听力试卷、同一评分标准。</li>
+            <li><b>旧题</b>：题库抽题 + 当年新题组合；每年或有 4 个 section 全新，但绝大多数考次有大量旧题反复出现。</li>
+            <li><b>机经</b>：官方题库不公开，“机经”是考生回忆组成的“民间题库”，是了解题库与出题动向最直接的渠道。</li>
+          </ul>
+          <div class="blk-t">评分换算表（图，原文照录）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="tw"><table class="tbl">
+            <tr><th>Band</th><th>对应答对数（40 题制）</th></tr>
+            <tr><td><code>9.0</code></td><td>40</td></tr>
+            <tr><td><code>8.5</code></td><td>38-39</td></tr>
+            <tr><td><code>8.0</code></td><td>36-37</td></tr>
+            <tr><td><code>7.5</code></td><td>34-35</td></tr>
+            <tr><td><code>7.0</code></td><td>30-33</td></tr>
+            <tr><td><code>6.5</code></td><td>26-29</td></tr>
+            <tr><td><code>6.0</code></td><td>23-25</td></tr>
+            <tr><td><code>5.5</code></td><td>20-22</td></tr>
+            <tr><td><code>5.0</code></td><td>16-19</td></tr>
+            <tr><td><code>4.5</code></td><td>13-15</td></tr>
+            <tr><td><code>4.0</code></td><td>10-12</td></tr>
+            <tr><td><code>3.5</code></td><td>6-9</td></tr>
+            <tr><td><code>3.0</code></td><td>4-5</td></tr>
+            <tr><td><code>2.5</code></td><td>3</td></tr>
+            <tr><td><code>2.0</code></td><td>2</td></tr>
+            <tr><td><code>1.0</code></td><td>1</td></tr>
+            <tr><td><code>0</code></td><td>Absent</td></tr>
+          </table></div>
+          <div class="blk-t">三条“潜规则”（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li><b>单复数</b>：答案以名词为主，录音读复数就必须写复数。必复数词：trousers / jeans / pajamas / shoes / socks / scissors；单复同形：cattle / sheep / fish / deer / police / people；单复异义：cloth(布料)/clothes(服装)、sand(沙)/sands(沙漠)、custom(风俗)/customs(海关)。</li>
+            <li><b>大小写</b>：答案区分大小写，专有名词须大写——姓名、地点、国籍、称谓、星期月份、节日、书名/影片名、行星等；若嫌麻烦可全大写（不影响得分）。</li>
+            <li><b>word 与 number</b>：three words / three words or a number / three words and/or a number 三档逐级放宽；word 指单词拼写、number 指纯数字。年月日都全时须写成一个 number（21/8/1979 而非 21st August 1979）；时间段写成 4.00 am - 6.00 pm 才算“一个 number”。</li>
+          </ul>
+          <div class="blk-t">一个易错示例（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="two">
+            <div class="b a"><span class="tg">错误写法</span><div class="vl">4.00 am to 6.00 pm</div>
+              <div class="ds">两个数字，超“a number”要求</div></div>
+            <div class="ar">时间段写法<br><b>并成一个 number</b></div>
+            <div class="b b"><span class="tg">正确写法</span><div class="vl">4.00 am - 6.00 pm</div>
+              <div class="ds">视为一个 number，符合作答要求</div></div>
+          </div>
+          <div class="blk-t">7 分五要素（图，原文照录）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="flow">
+            <div class="flow-r"><div class="k">① 扎实基础</div><div class="v">单词听写与数字辨识。</div></div>
+            <div class="flow-r"><div class="k">② 精练技巧</div><div class="v">三大题型 12 子类各有打法。</div></div>
+            <div class="flow-r"><div class="k">③ 熟悉场景</div><div class="v">知道考什么、答案是什么。</div></div>
+            <div class="flow-r"><div class="k">④ 注意细节</div><div class="v">1 词还是 2 词/连字符/单复数/大小写/word-number。</div></div>
+            <div class="flow-r"><div class="k">⑤ 稳定心态</div><div class="v">40 分钟只放一遍，遇上难题要“淡定”。</div></div>
+          </div>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>做题第一步不是听，是读指令</b>；单复数、大小写、word/number 三处细节，写对也可能丢分。</div></div>
+      </section>
+
+      <!-- 第一周 Day2-4 -->
+      <section class="ch" id="w1-jijing" data-title="第一周 Day2–4 机经场景学习法">
+        <div class="ch-head"><span class="no">02</span><h2>第一周 Day2–4：机经场景学习法（十大高频场景）</h2><span class="en">WEEK 1 · DAY 2–4</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">第一周 Day2–4 · 正文级</span></div>
+        <div class="oneline">机经不是用来“背”的，是用来“学”的；把散乱机经<b>归纳为 10 大高频场景</b>，按场景记考点，比按 Version 背更稳。</div>
+        <div class="blk-x">
+          <div class="blk-t">为什么要看听力机经（原文数据）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>以 2016 年为例：48 场考试 = 192 个 section，其中旧题 104、新题 88，<b>旧题占 54.2%</b>，新旧比近 1:1。</li>
+            <li>结论：每次考近一半题目可能是旧题；“不是看不看的问题，是怎么看最有效的问题”。</li>
+          </ul>
+          <div class="blk-t">十大高频场景（原文照录）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>租房 ACCOMMODATION｜旅游 TRAVEL｜休闲娱乐 RECREATION｜学术 ACADEMY｜医疗 MEDICAL TREATMENT</li>
+            <li>环保 ENVIRONMENT｜动植物 PROPAGATION｜科普 SCIENCE｜社会人文 HUMANITY｜生活万象 OTHERS</li>
+            <li>十大场景实质覆盖现有 <b>1000 多个 section</b> 的内容。</li>
+          </ul>
+          <div class="blk-t">场景例 · 租房（原文八维度）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>两大渠道：房屋中介（real estate agent）、报纸广告；并常考寄宿家庭（homestay family）申请表。</li>
+            <li>八维度：房屋类型（hall of residence / home stay / flat / studio）· 房间类型（double/twin/single room）· 租房费用（rent/deposit/utilities）· 地理位置（city center/suburb）· 周边环境 · 房屋状况 · 设备设施 · 付款方式（cash/credit card/check/bank transfer）。</li>
+          </ul>
+          <div class="blk-t">场景例 · 学术与医疗（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li><b>学术场景</b>（S3/S4 重点）：高频话题、教学设施（library/lab/lecture theatre…）、教职员工、新生入学、课程类型、学科名称、作业与论文；难度在单词、语速、内容。</li>
+            <li><b>医疗场景</b>：分咨询（S1/S2，问姓名/生日/地址/症状/医嘱）与介绍（S3/S4，讲病种起源成因治疗）；高频如电话咨询失眠 V30044。</li>
+            <li><b>环保场景</b>（S4 常考 universal topic）：水资源、垃圾回收、空气污染、可替换能源四话题，多为笔记填空。</li>
+          </ul>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>按场景背考点</b>——考场上听到场景，就能预判答案范围与该场景必考词。</div></div>
+      </section>
+
+      <!-- 第一周 Day5 -->
+      <section class="ch" id="w1-diagram" data-title="第一周 Day5 地图/流程图/标签题">
+        <div class="ch-head"><span class="no">03</span><h2>第一周 Day5：图示题——地图 / 流程图 / 标签题</h2><span class="en">WEEK 1 · DAY 5</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">第一周 Day5 · 正文级</span></div>
+        <div class="oneline">图示题靠“<b>图面位置 + 路径跟踪</b>”：地图题抓起点与方位词，流程图当单句填空，标签题抓部位名。</div>
+        <div class="blk-x">
+          <div class="blk-t">地图题 · 四步解题（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="flow">
+            <div class="flow-r"><div class="k">STEP 1</div><div class="v">找好 starting point：卷面写“entrance”不代表起点，录音里才确认出发点。</div></div>
+            <div class="flow-r"><div class="k">STEP 2</div><div class="v">充分阅读图面信息：有十字方向标=大地图题，听 north/south/east/west；否则听 left/right；注意街道名、地点名、树/湖/花坛/铁轨等特殊标志。</div></div>
+            <div class="flow-r"><div class="k">STEP 3</div><div class="v">听方位词，按 speaker 方向走：turn left/right、on the left、in front of、behind、opposite to、at the end of、go along、go straight；路口词 corner / crossing / junction；圆形图注意 clockwise / anti-clockwise。</div></div>
+            <div class="flow-r"><div class="k">STEP 4</div><div class="v">利用图面序号：有题号的地图一定按题号顺序介绍，可提前预判路径。</div></div>
+          </div>
+          <div class="blk-t">流程图（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>流程题 = 单句填空题，顺序性强；读题时同时看 2–3 题、反复记要点。</li>
+            <li>漏听一空不要慌，只要能反应出下一题即可继续（橄榄油制作流程为例：by hand / mills / crushed / labeled / at home &amp; abroad）。</li>
+          </ul>
+          <div class="blk-t">标签题（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>按录音给物品各部位标注名称；多为内部结构图，可能有生词——遇生词先把读音记下、试拼，不要空着。</li>
+            <li>注意力放在<b>描述顺序</b>与<b>部位名称</b>；答案常在方位词后出现：front / back / top / bottom / underneath / outside / inside。</li>
+            <li>示例（塑料概念车）答案 16.C / 17.D / 18.E。</li>
+          </ul>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>地图题靠字面硬对、不靠方位推理</b>——图中字母顺序未必对应地理方位，必须据录音选项字面匹配。</div></div>
+      </section>
+
+      <!-- 第二周 -->
+      <section class="ch" id="w2-gapfill" data-title="第二周 填空题">
+        <div class="ch-head"><span class="no">04</span><h2>第二周：填空题——无词听力法</h2><span class="en">WEEK 2</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">第二周 · 正文级</span></div>
+        <div class="oneline">填空题<b>占 40 题的 60%–70%</b>，是“得高分的关键”（6 分只对 23–25 题）；核心方法是<b>无词听力法</b>：定位 → 预测词性 → 按词性找答案。</div>
+        <div class="blk-x">
+          <div class="blk-t">填空题分类与考位分布（图 + 原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="tw"><table class="tbl">
+            <tr><th>子类</th><th>常考 Section</th></tr>
+            <tr><td><code>个人信息表</code></td><td>S1 居多</td></tr>
+            <tr><td><code>表格填空题</code></td><td>S2 / S3 居多</td></tr>
+            <tr><td><code>单词填空题</code></td><td>S2 / S3 / S4 居多</td></tr>
+            <tr><td><code>笔记填空题</code></td><td>S4 居多</td></tr>
+            <tr><td><code>小结填空题</code></td><td>S3 / S4 居多</td></tr>
+            <tr><td><code>简答题</code></td><td>S2 居多</td></tr>
+          </table></div>
+          <div class="blk-t">无词听力法 · 三步（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="flow">
+            <div class="flow-r"><div class="k">① 定位</div><div class="v">迅速浏览题干（不是细读翻译），画出<b>主语、专有名词、数词、空前后的名词、最高级</b>——这些在录音中一般不替换。</div></div>
+            <div class="flow-r"><div class="k">② 预测词性</div><div class="v">以<b>词性</b>为基础定答案（如“填形容词”）；词性是不变的抓手，可避开同义替换。</div></div>
+            <div class="flow-r"><div class="k">③ 对应</div><div class="v">主动听定位词，按词性在文中抓答案；S3/S4 定位词也可能被替换，仍严格按词性找。</div></div>
+          </div>
+          <div class="blk-t">三型同法（单句 / 小结 / 笔记）（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>单句/小结/笔记三型做题方法相同，都用无词听力法。</li>
+            <li><b>表格填空</b>三法：逆向读题（横排题号竖着审、竖排题号横着审，同类词成列/成行）· 排除生词并预测词性 · 顺序听题、注意节奏。</li>
+            <li><b>小结填空</b>较难：卷面词与录音常同义替换（同义/正反/主被动），尤其重视数字与重读信息。</li>
+            <li><b>笔记填空</b>是单句填空的“升级版”（S4 lecture）：加快读题、紧跟节奏，并列关系处最能快速缩范围。</li>
+            <li><b>简答题</b>最简单：多考 W-H 问题（when/where/why/which/what/how much/many/long/far/often）；列举 2–3 点时注意 firstly/secondly 与 and/besides/in addition。</li>
+          </ul>
+          <div class="blk-t">答题格式提醒（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="quote"><code>Write NO MORE THAN THREE WORDS AND / OR A NUMBER</code> 是多数题的指令；答案一般小写即可，专有名词大写，且可不用定冠词。<span class="src">— 第二周真题指令</span></div>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>拿到填空表先做两件事——① 标出每个空的词性 ② 圈出每空前后的名词</b>，各不到一分钟，却能消掉听音时的大部分干扰。</div></div>
+      </section>
+
+      <!-- 第三周 -->
+      <section class="ch" id="w3-choice" data-title="第三周 选择题与配对题">
+        <div class="ch-head"><span class="no">05</span><h2>第三周：选择题与配对题</h2><span class="en">WEEK 3</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">第三周 · 正文级</span></div>
+        <div class="oneline">选择题是目前<b>错误率最高</b>的题型；它考两件事——<b>快速且有效的读题</b>（找出选项“区别”）与<b>同义替换的辨析</b>。</div>
+        <div class="blk-x">
+          <div class="blk-t">选择题 · 两大能力（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li><b>快速</b>：30 秒看 10 题×3 选项 ≈ 1 秒 1 句，必须练快速读题。</li>
+            <li><b>有效</b>：读题要找出选项之间的<b>区别</b>，听时才有方向；否则听录音时还得重读选项，既分心又浪费时间。</li>
+            <li><b>同义替换</b>：题干与选项都充满替换（名词/动词/形容词/数字表达/主被动），是核心难点。</li>
+          </ul>
+          <div class="blk-t">选择题 · 解题步骤（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="flow">
+            <div class="flow-r"><div class="k">① 读题</div><div class="v">先题干后选项；画名词/专有名词/数字定位；选项用“主谓宾法”拎结构，重复词画掉只看余下区别。</div></div>
+            <div class="flow-r"><div class="k">② 辨析</div><div class="v">听同义替换，抓词性转换与语态变化。</div></div>
+            <div class="flow-r"><div class="k">③ 技巧</div><div class="v">用<b>头尾原则</b>（答案多在定位词后或结论处，能排除先出现的就选最后出现的）、<b>绝对性原则</b>（too/must/only/all/never/最高级/专有名词，录音没说就排除）、<b>替换原则</b>（听到原词的选项要警惕，优先选有替换关系的选项）。</div></div>
+          </div>
+          <div class="blk-t">配对题 · 三步（原文）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li><b>熟读题干</b>：题与题衔接紧凑、题干不重复，看题时切实读一遍加深印象。</li>
+            <li><b>读选项找切入点</b>：明确题干与选项的联系（问时间/频次/地点/变化），以此为听题切入点。</li>
+            <li><b>排除干扰、抓关系、注意替换</b>：只需双方联系，避开其他信息干扰；若仓促，可先记下信息、录音结束后再对照选项作答。</li>
+          </ul>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>听到原词 ≠ 答案</b>——选择题的首选永远是“有同义替换关系”的那个选项。</div></div>
+      </section>
+
+      <!-- 第四周 -->
+      <section class="ch" id="w4-mock" data-title="第四周 综合练习与模拟考试">
+        <div class="ch-head"><span class="no">06</span><h2>第四周：综合练习与模拟考试</h2><span class="en">WEEK 4</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">第四周 · 正文级</span></div>
+        <div class="oneline">五天五套<b>综合练习</b>，按真实考试计时，把前三周的题型技巧与场景词落到整套题的节奏与心态上。</div>
+        <div class="blk-x">
+          <div class="blk-t">五天安排（原书目录）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>Day 1 综合练习一｜Day 2 综合练习二｜Day 3 综合练习三｜Day 4 综合练习四｜Day 5 综合练习五。</li>
+            <li>每套练习覆盖多场景、多题型，模拟真实考试的难度分布（S1 易 → S4 难）。</li>
+          </ul>
+          <div class="blk-t">本阶段的使用要点（据原书方法归纳）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>按真实时长（30 听 + 10 誊写）整场计时，练“只听一遍”的节奏。</li>
+            <li>做完立即对照附录一答案与听力原文复盘（对答案 → 精听 → 跟读）。</li>
+            <li>用第二周的考位表做<b>错题归因</b>（错在笔记填空 S4=术语精度；错在个人信息表 S1=生活场景词）。</li>
+          </ul>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>用整场计时，把“技巧”练成“条件反射”</b>；错题回原文，才是提分闭环。</div></div>
+      </section>
+
+      <!-- 附录一 -->
+      <section class="ch" id="ap1-keys" data-title="附录一 模拟题答案与听力原文">
+        <div class="ch-head"><span class="no">07</span><h2>附录一：模拟题答案与听力原文</h2><span class="en">APPENDIX 1</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">附录一 · 正文级</span></div>
+        <div class="oneline">全书最大的单元（约 7.4 万字）：按 Practice Test 逐套给出<b>答案</b>与<b>完整听力原文</b>，是复盘、精听、听写的一手素材。</div>
+        <div class="blk-x">
+          <div class="blk-t">结构（原文照录）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>按 Practice Test 1 / 2 / 3 … 逐套列出每题答案（填空答案含大小写、单复数、单位等原始写法）。</li>
+            <li>每套附完整<b>听力原文</b>（Tanning 对话、橄榄油流程、概念车、校园地图等）。</li>
+          </ul>
+          <div class="blk-t">三种正确用法（据原书方法归纳）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <div class="flow">
+            <div class="flow-r"><div class="k">① 对答案</div><div class="v">核对自己写的词数、单复数、大小写、word/number 是否合规。</div></div>
+            <div class="flow-r"><div class="k">② 精听跟读</div><div class="v">对照原文重听，做段落跟读，适应语速与连读/弱读/失爆。</div></div>
+            <div class="flow-r"><div class="k">③ 听写</div><div class="v">选重点段落做听写，练“用耳朵听单词、用手写单词”。</div></div>
+          </div>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>做完题必回原文精听跟读</b>——答案只告诉你对错，原文才告诉你为什么错。</div></div>
+      </section>
+
+      <!-- 附录二/三 -->
+      <section class="ch" id="ap23-jijing" data-title="附录二/三 机经选编与高频词汇">
+        <div class="ch-head"><span class="no">08</span><h2>附录二/三：机经选编与机经高频词汇</h2><span class="en">APPENDIX 2–3</span><button class="ch-btn" title="朗读本章" aria-label="朗读本章">▶ 朗读本章</button><span class="pg">附录二/三 · 正文级</span></div>
+        <div class="oneline">附录二按 <b>Version</b> 选编最新听力机经（Section 回忆 + 答案）；附录三按<b>场景</b>汇高频词表；两篇与第一周的“场景学习法”首尾闭环。</div>
+        <div class="blk-x">
+          <div class="blk-t">附录二 · 机经选编（原文结构）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>以 Version 为单位（如 09117 / 09118 / 09119 …），逐 Version 交代各 Section 主题与答案回忆。</li>
+            <li>部分 Section 直接指向其他 Version（如“Section 3 = Version 07148 Section 3”）。</li>
+          </ul>
+          <div class="blk-t">附录三 · 机经高频词汇（原文分组）<button class="spk-hd" title="朗读本节" aria-label="朗读本节">🔊</button></div>
+          <ul class="ideas">
+            <li>按场景成组：租房（real estate / deposit / hall of residence…）、旅游（Great Barrier Reef / one-way ticket…）、交通（ferry / tram / shuttle bus…）、娱乐（documentary / ballet…）等。</li>
+            <li>词条为“英文 + 中文释义”，部分标注拼写/大小写要求（如 CD-ROM 光驱“每个字母大写”）。</li>
+          </ul>
+        </div>
+        <div class="take"><div class="t">TAKEAWAY</div><div class="c"><b>词表按场景背</b>——与 Day2–4 的十大场景学习法对应，场景词 + 场景考点一起记才有效。</div></div>
+      </section>
+
+      <!-- 深色总结 -->
+      <div class="stage" data-tts="stage">
+        <div class="stage-h"><span class="sn">SUMMARY</span><h2>一张图记住这本书</h2><button class="spk-hd" title="朗读全书路线图" aria-label="朗读全书路线图">🔊</button><span class="en">ROADMAP</span></div>
+        <p class="lead">一个月四周：<b>认知（懂考试）→ 方法（题型 + 场景）→ 实战（整场计时）→ 复盘（原文 + 词表）</b>。</p>
+        <ul class="pts">
+          <li><b>第一周</b>：懂考试 + 机经十场景 + 图示题三步。</li>
+          <li><b>第二周</b>：填空题，无词听力法（定位→词性→答案）。</li>
+          <li><b>第三周</b>：选择题三原则 + 配对题三步。</li>
+          <li><b>第四周</b>：五套综合练习，整场计时。</li>
+          <li><b>附录</b>：答案原文 + 机经选编 + 高频词表，闭环复盘。</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <div class="avatar">杨</div>
+        <div>
+          <div class="who">《雅思一月通：听力胜典》· 杨凡 等编著</div>
+          <div class="desc">机械工业出版社 · 《雅思一月通：听力胜典》· 杨凡 等编著。本精读页为读书简报，非原书替代；全书 11 章（丛书序/本书序、第一至四周各 Day、附录一/二/三）均经微信读书登录后逐节采集原文，全部正文级（含附录一听力原文与附录三词表）。2018-01 出版，ISBN 9787111587453。</div>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 机械工业出版社 · 《雅思一月通：听力胜典》· 杨凡 等编著</span>
+        <span>单文件版 · 速览 + 精读 · <b><a href="#birdseye" style="color:var(--gold-deep)">返回鸟瞰页 →</a></b></span>
+      </div>
+        </main>
+  </div>
+</div>
+
+<button class="totop" id="totop" title="回到顶部">↑</button>
+
+<script>
+/* 复习模式 */
+var reviewBtn=document.getElementById('reviewBtn');
+function setReview(on){document.body.classList.toggle('review',on);reviewBtn.classList.toggle('on',on);}
+reviewBtn.addEventListener('click',function(){setReview(!document.body.classList.contains('review'));});
+if(location.search.indexOf('review=1')>=0)setReview(true);
+
+/* 关键词搜索：命中即显，其余整块隐藏 */
+var searchEl=document.getElementById('search');
+var secs=[].slice.call(document.querySelectorAll('section.ch'));
+searchEl.addEventListener('input',function(){
+  var q=this.value.trim().toLowerCase();
+  secs.forEach(function(s){s.classList.toggle('hidden',!!q&&s.textContent.toLowerCase().indexOf(q)<0);});
+});
+
+/* 侧栏/顶栏锚点高亮 + 平滑滚动（scrollTo 而非 scrollIntoView，避免 sticky 容器联动） */
+var links=[].slice.call(document.querySelectorAll('.side a'));
+var navs=[].slice.call(document.querySelectorAll('#nav a'));
+function go(id,isSide){
+  var t=document.getElementById(id);if(!t)return;
+  var y=t.getBoundingClientRect().top+window.pageYOffset-(isSide?74:20);
+  window.scrollTo({top:y,behavior:'smooth'});
+}
+links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();go(a.getAttribute('href').slice(1),true);});});
+navs.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();go(a.getAttribute('href').slice(1),false);});});
+
+var spy=new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(en.isIntersecting){
+      var id=en.target.id;
+      links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});
+      navs.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});
+    }
+  });
+},{rootMargin:'-70px 0px -70% 0px'});
+secs.forEach(function(s){spy.observe(s);});
+
+/* 回到顶部 */
+var totop=document.getElementById('totop');
+window.addEventListener('scroll',function(){totop.classList.toggle('on',window.pageYOffset>600);},{passive:true});
+totop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+<div class="mini" id="mini">
+  <div class="mini-top">
+    <span class="st">朗读中</span>
+    <span class="sp"><i id="miniBar"></i></span>
+    <button class="mini-btn" id="miniBtn" title="暂停">❚❚</button>
+    <button class="mini-btn" id="miniStop" title="停止">✕</button>
+  </div>
+  <div class="mini-body" id="miniNow"></div>
+</div>
+<script>/* ─────────────────────────────────────────────────────────────
+   TTS 朗读引擎 —— 基于浏览器原生 SpeechSynthesis（零依赖 / 离线可用）
+   处理：voiceschanged 异步、Chromium 长句 15s 中断保活、连点队列重建、
+   缺语音包时优雅降级提示。
+   ───────────────────────────────────────────────────────────── */
+(function () {
+  var synth = window.speechSynthesis;
+  if (!synth) return;
+
+  var voices = [], ready = false;
+  var st = { rate: 1, order: 'enzh', en: '', zh: '' };
+  var queue = [], idx = -1, playing = false, keepAlive = null, curBtn = null;
+  var ui = {};
+
+  function loadVoices() {
+    voices = synth.getVoices() || [];
+    if (voices.length && !ready) { ready = true; paintVoices(); paintStatus(); }
+  }
+  if (typeof synth.addEventListener === 'function') synth.addEventListener('voiceschanged', loadVoices);
+  loadVoices();
+  setTimeout(loadVoices, 350);
+  setTimeout(loadVoices, 1200);
+
+  function pickEn() {
+    var p = st.en && voices.filter(function (v) { return v.name === st.en; })[0];
+    if (p) return p;
+    var l = voices.filter(function (v) { return /^en(-|_|$)/i.test(v.lang); });
+    var prefer = ['Samantha', 'Google US English', 'Microsoft Aria', 'Microsoft Zira', 'Alex', 'Karen', 'Daniel'];
+    for (var i = 0; i < prefer.length; i++) {
+      var hit = l.filter(function (v) { return v.name.indexOf(prefer[i]) >= 0; })[0];
+      if (hit) return hit;
+    }
+    return l[0] || null;
+  }
+  function pickZh() {
+    var p = st.zh && voices.filter(function (v) { return v.name === st.zh; })[0];
+    if (p) return p;
+    var l = voices.filter(function (v) { return /^(zh|cmn)(-|_|$)/i.test(v.lang); });
+    var prefer = ['Tingting', 'Ting-Ting', 'Google 普通话', 'Microsoft Xiaoxiao', 'Microsoft Huihui', 'Microsoft Yaoyao'];
+    for (var i = 0; i < prefer.length; i++) {
+      var hit = l.filter(function (v) { return v.name.indexOf(prefer[i]) >= 0; })[0];
+      if (hit) return hit;
+    }
+    return l[0] || null;
+  }
+  function hasEn() { return !!pickEn(); }
+  function hasZh() { return !!pickZh(); }
+
+  function paintVoices() {
+    if (!ui.enSel || !voices.length) return;
+    var mk = function (sel, list, keep, auto) {
+      sel.innerHTML = '';
+      var o0 = document.createElement('option');
+      o0.value = ''; o0.textContent = auto; sel.appendChild(o0);
+      list.forEach(function (v) {
+        var o = document.createElement('option');
+        o.value = v.name; o.textContent = v.name + ' (' + v.lang + ')';
+        sel.appendChild(o);
+      });
+      sel.value = (keep && list.some(function (v) { return v.name === keep; })) ? keep : '';
+    };
+    mk(ui.enSel, voices.filter(function (v) { return /^en(-|_|$)/i.test(v.lang); }), st.en, '自动优选');
+    mk(ui.zhSel, voices.filter(function (v) { return /^(zh|cmn)(-|_|$)/i.test(v.lang); }), st.zh, '自动优选');
+  }
+
+  function paintStatus() {
+    if (!ui.status) return;
+    if (!hasEn() || !hasZh()) {
+      ui.status.className = 'tts-note warn';
+      ui.status.innerHTML = !voices.length
+        ? '<b>⚠ 本机未检测到语音引擎。</b>请在系统设置里安装语音包：<br>· Windows：设置 → 时间和语言 → 语音<br>· macOS：系统设置 → 辅助功能 → 朗读内容<br>· 手机：系统 → 语言 → 文字转语音'
+        : '<b>⚠ 缺少' + (hasEn() ? '中文' : '英文') + '语音包。</b>本页朗读需要中英双语引擎，可在系统设置中安装。';
+      ui.status.style.display = '';
+    } else {
+      ui.status.className = 'tts-note';
+      ui.status.innerHTML = '已就绪 · 英文 ' + (pickEn() ? '✓' : '✗') + ' 中文 ' + (pickZh() ? '✓' : '✗')
+        + '<br>卡片可单独点 🔊 朗读；章节可点「朗读本章」。';
+    }
+  }
+
+  /* Chromium 保活：长句约 15s 自动中断 */
+  function startKeepAlive() {
+    stopKeepAlive();
+    keepAlive = setInterval(function () {
+      if (!playing) return;
+      try { synth.pause(); synth.resume(); } catch (e) {}
+    }, 9000);
+  }
+  function stopKeepAlive() { if (keepAlive) { clearInterval(keepAlive); keepAlive = null; } }
+
+  function sayNext() {
+    if (idx + 1 >= queue.length) { finish(); return; }
+    idx++;
+    var it = queue[idx];
+    if (!it || !it.text) { sayNext(); return; }
+    var u = new SpeechSynthesisUtterance(it.text);
+    var v = it.lang === 'en' ? pickEn() : pickZh();
+    if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = it.lang === 'en' ? 'en-US' : 'zh-CN'; }
+    u.rate = it.lang === 'en' ? st.rate : Math.min(1.25, st.rate * 0.95);
+    u.pitch = 1; u.volume = 1;
+    u.onend = function () { setTimeout(sayNext, 160); };
+    u.onerror = function (ev) {
+      if (ev && (ev.error === 'interrupted' || ev.error === 'canceled')) return;
+      setTimeout(sayNext, 160);
+    };
+    if (ui.miniNow) {
+      ui.miniNow.innerHTML = '<span class="lang">' + (it.lang === 'en' ? 'EN' : '中文') + '</span>'
+        + escapeHtml(it.text.length > 90 ? it.text.slice(0, 90) + '…' : it.text);
+    }
+    if (ui.miniBar) ui.miniBar.style.width = (((idx + 1) / queue.length) * 100) + '%';
+    try { synth.speak(u); } catch (e) { setTimeout(sayNext, 160); }
+  }
+
+  function finish() {
+    playing = false; stopKeepAlive();
+    if (ui.mini) ui.mini.classList.remove('on');
+    if (ui.miniBtn) { ui.miniBtn.textContent = '▶'; ui.miniBtn.title = '播放'; }
+    clearActive();
+  }
+  function clearActive() {
+    if (curBtn) { curBtn.classList.remove('playing'); curBtn = null; }
+    document.querySelectorAll('.spk.playing,.ch-btn.playing,.spk-hd.playing').forEach(function (b) { b.classList.remove('playing'); });
+    if (ui.panelBtn) ui.panelBtn.classList.remove('playing');
+  }
+
+  function play(items, btn) {
+    if (!items || !items.length) return;
+    stop();
+    queue = items.slice();
+    idx = -1;
+    playing = true;
+    startKeepAlive();
+    if (btn) { btn.classList.add('playing'); curBtn = btn; }
+    if (ui.panelBtn) ui.panelBtn.classList.add('playing');
+    if (ui.mini) { ui.mini.classList.add('on'); if (ui.miniBar) ui.miniBar.style.width = '0%'; }
+    if (ui.miniBtn) { ui.miniBtn.textContent = '❚❚'; ui.miniBtn.title = '暂停'; }
+    sayNext();
+  }
+
+  function stop() {
+    playing = false; stopKeepAlive(); queue = []; idx = -1;
+    try { synth.cancel(); } catch (e) {}
+    clearActive();
+    if (ui.mini) ui.mini.classList.remove('on');
+  }
+  function toggle() {
+    if (!playing) { play(lastItems, lastBtn); return; }
+    if (synth.paused) { synth.resume(); if (ui.miniBtn) ui.miniBtn.textContent = '❚❚'; }
+    else { synth.pause(); if (ui.miniBtn) ui.miniBtn.textContent = '▶'; }
+  }
+  var lastItems = [], lastBtn = null;
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function txt(sel, root) {
+    var el = (root || document).querySelector(sel);
+    return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+  function clean(node) {
+    if (!node) return '';
+    var c = node.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('button,.spk,.spk-hd,.ch-btn'), function (b) {
+      if (b.parentNode) b.parentNode.removeChild(b);
+    });
+    return (c.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+  function cleanAll(list) {
+    return [].map.call(list, clean).filter(Boolean);
+  }
+
+  var BLOCK = {
+    ideas: function (el) {
+      return cleanAll(el.querySelectorAll('.ideas li')).map(function (t) { return { lang: 'zh', text: t }; });
+    },
+    flow: function (el) {
+      return cleanAll(el.querySelectorAll('.flow-r')).map(function (t) { return { lang: 'zh', text: t }; });
+    },
+    two: function (el) {
+      return cleanAll(el.querySelectorAll('.b')).map(function (t) { return { lang: 'zh', text: t }; });
+    },
+    summary: function (el) {
+      var h = clean(el.querySelector('.top h2') || el.querySelector('h2'));
+      var out = h ? [{ lang: 'zh', text: h }] : [];
+      return out.concat(cleanAll(el.querySelectorAll('.sum-row')).map(function (t) { return { lang: 'zh', text: t }; }));
+    },
+    stage: function (el) {
+      var h = clean(el.querySelector('.stage-h h2') || el.querySelector('h2'));
+      var out = h ? [{ lang: 'zh', text: h }] : [];
+      var lead = clean(el.querySelector('.lead'));
+      if (lead) out.push({ lang: 'zh', text: lead });
+      return out.concat(cleanAll(el.querySelectorAll('.pts li')).map(function (t) { return { lang: 'zh', text: t }; }));
+    },
+    intro: function (el) {
+      var t = clean(el); return t ? [{ lang: 'zh', text: t }] : [];
+    },
+    dedication: function (el) {
+      var tx = clean(el.querySelector('.tx')), from = clean(el.querySelector('.from'));
+      var t = [tx, from].filter(Boolean).join('。');
+      return t ? [{ lang: 'zh', text: t }] : [];
+    }
+  };
+
+  function blockItems(el) {
+    var fn = BLOCK[el.getAttribute('data-tts')];
+    if (fn) return fn(el);
+    var t = clean(el);
+    return t ? [{ lang: 'zh', text: t }] : [];
+  }
+
+  function chapterItems(ch) {
+    var out = [];
+    var scope = (st.scope) || 'core';
+    var head = ch.querySelector('.ch-head h2');
+    var m = /^ch(\d+)$/.exec(ch.id || '');
+    if (head) out.push({ lang: 'zh', text: (m ? '第 ' + m[1] + ' 章，' : '') + head.textContent });
+    var on = clean(ch.querySelector('.oneline')); if (on) out.push({ lang: 'zh', text: on });
+    if (scope === 'full' || scope === 'text' || scope === 'core') {
+      out = out.concat(cleanAll(ch.querySelectorAll('.ideas li')).map(function (t) { return { lang: 'zh', text: t }; }));
+    }
+    if (scope === 'full') {
+      out = out.concat(cleanAll(ch.querySelectorAll('.flow-r')).map(function (t) { return { lang: 'zh', text: t }; }));
+      out = out.concat(cleanAll(ch.querySelectorAll('.two .b')).map(function (t) { return { lang: 'zh', text: t }; }));
+    }
+    if (scope !== 'text') {
+      var take = clean(ch.querySelector('.take .c')); if (take) out.push({ lang: 'zh', text: take });
+    }
+    return out;
+  }
+
+  /* 子章节朗读：从 blk-t 标题起，收集到下一个 blk-t（或容器尾部）之间的内容 */
+  function subItems(bt) {
+    var out = [];
+    var head = clean(bt);
+    if (head) out.push({ lang: 'zh', text: head });
+    var n = bt.nextElementSibling;
+    while (n && !n.classList.contains('blk-t')) {
+      if (n.matches('ul.ideas')) {
+        out = out.concat(cleanAll(n.querySelectorAll('li')).map(function (t) { return { lang: 'zh', text: t }; }));
+      } else if (n.classList.contains('flow')) {
+        [].forEach.call(n.querySelectorAll('.flow-r'), function (r) {
+          var k = clean(r.querySelector('.k')), v = clean(r.querySelector('.v'));
+          var s = ((k ? k + '。' : '') + (v || '')).trim();
+          if (s) out.push({ lang: 'zh', text: s });
+        });
+      } else if (n.classList.contains('two')) {
+        [].forEach.call(n.querySelectorAll('.b'), function (bb) {
+          var s = [clean(bb.querySelector('.tg')), clean(bb.querySelector('.vl')), clean(bb.querySelector('.ds'))].filter(Boolean).join('，');
+          if (s) out.push({ lang: 'zh', text: s });
+        });
+      } else if (n.querySelector && n.querySelector('table')) {
+        [].forEach.call(n.querySelectorAll('tr'), function (tr, i) {
+          if (i === 0) return;
+          var cells = cleanAll(tr.querySelectorAll('td,th'));
+          if (cells.length) out.push({ lang: 'zh', text: cells.join('，') });
+        });
+      }
+      n = n.nextElementSibling;
+    }
+    return out;
+  }
+
+  function init() {
+    ui.panelBtn = document.getElementById('ttsBtn');
+    ui.panel = document.getElementById('ttsPanel');
+    ui.enSel = document.getElementById('ttsEn');
+    ui.zhSel = document.getElementById('ttsZh');
+    ui.rate = document.getElementById('ttsRate');
+    ui.rateV = document.getElementById('ttsRateV');
+    ui.order = document.getElementById('ttsOrder');
+    ui.scope = document.getElementById('ttsScope');
+    ui.status = document.getElementById('ttsStatus');
+    ui.mini = document.getElementById('mini');
+    ui.miniNow = document.getElementById('miniNow');
+    ui.miniBar = document.getElementById('miniBar');
+    ui.miniBtn = document.getElementById('miniBtn');
+    if (!ui.panelBtn) return;
+    loadVoices(); paintVoices(); paintStatus();
+
+    ui.panelBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var on = ui.panel.classList.toggle('on');
+      ui.panelBtn.classList.toggle('on', on);
+      if (on) { loadVoices(); paintStatus(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!ui.panel.contains(e.target) && e.target !== ui.panelBtn && !ui.panelBtn.contains(e.target)) {
+        ui.panel.classList.remove('on'); ui.panelBtn.classList.remove('on');
+      }
+    });
+    if (ui.rate) ui.rate.addEventListener('input', function () {
+      st.rate = parseFloat(ui.rate.value);
+      if (ui.rateV) ui.rateV.textContent = st.rate.toFixed(1) + '×';
+    });
+    ui.enSel.addEventListener('change', function () { st.en = ui.enSel.value; });
+    ui.zhSel.addEventListener('change', function () { st.zh = ui.zhSel.value; });
+    if (ui.order) ui.order.addEventListener('change', function () { st.order = ui.order.value; });
+    if (ui.scope) ui.scope.addEventListener('change', function () { st.scope = ui.scope.value; });
+
+    var test = document.getElementById('ttsTest');
+    if (test) test.addEventListener('click', function () {
+      play(st.order === 'zh-en'
+        ? [{ lang: 'zh', text: '这是中文语音试听效果。' }, { lang: 'en', text: 'This is an English voice sample.' }]
+        : [{ lang: 'en', text: 'This is an English voice sample.' }, { lang: 'zh', text: '这是中文语音试听效果。' }],
+        test);
+    });
+
+    // 🔊：块级按钮（data-tts）或卡片摘要
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.spk, .spk-hd'); if (!b) return;
+      e.preventDefault(); e.stopPropagation();
+      if (b.classList.contains('playing')) { stop(); return; }
+
+      var blk = b.closest('[data-tts]');
+      if (blk) { lastItems = blockItems(blk); lastBtn = b; play(lastItems, b); return; }
+
+      // 子章节：blk-t 的 🔊 → 读本 blk-t 到下一个 blk-t 之间的内容
+      var subt = b.closest('.blk-t');
+      if (subt) { lastItems = subItems(subt); if (!lastItems.length) return; lastBtn = b; play(lastItems, b); return; }
+
+      var host = b.closest('.cell') || b.closest('.card');      if (!host) return;
+      var title = txt('.tt', host);
+      var body = txt('.oneline', host) || txt('.dd', host) || txt('.lead', host);
+      var extra = txt('.arrow', host);
+      var trim = function (x) { return x ? x.replace(/[。．.；;，,、\s]+$/u, '') : ''; };
+      var parts = [trim(title), trim(body), trim(extra)].filter(Boolean);
+      lastItems = [{ lang: 'zh', text: parts.join('。') + '。' }];
+      lastBtn = b;
+      play(lastItems, b);
+    });
+
+    // 点击英文例句（.en）→ 用英文音色单句精听
+    document.addEventListener('click', function (e) {
+      var en = e.target.closest('.blk-x .en, .oneline .en, .take .c .en');
+      if (!en) return;
+      if (e.target.closest('button,a')) return;
+      var t = (en.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!t) return;
+      document.querySelectorAll('.en.speaking').forEach(function (x) { x.classList.remove('speaking'); });
+      en.classList.add('speaking');
+      var off = function () { en.classList.remove('speaking'); synth.removeEventListener('end', off); };
+      synth.addEventListener('end', off, { once: true });
+      lastItems = [{ lang: 'en', text: t }];
+      play(lastItems, null);
+    });
+
+    // ▶ 朗读本章
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.ch-btn'); if (!b) return;
+      e.preventDefault(); e.stopPropagation();
+      if (b.classList.contains('playing')) { stop(); return; }
+      var ch = b.closest('section.ch');
+      var stg = b.closest('.stage');
+      if (ch) lastItems = chapterItems(ch);
+      else if (stg) lastItems = [{ lang: 'zh', text: (txt('.stage-h h2', stg) || '') + '。' + (txt('.lead', stg) || '') }];
+      else return;
+      lastBtn = b;
+      play(lastItems, b);
+    });
+
+    if (ui.miniBtn) ui.miniBtn.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
+    var miniStop = document.getElementById('miniStop');
+    if (miniStop) miniStop.addEventListener('click', function (e) { e.stopPropagation(); stop(); });
+
+    window.addEventListener('beforeunload', function () { try { synth.cancel(); } catch (e) {} });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  window.addEventListener('load', function () { loadVoices(); paintStatus(); });
+})();
+</script>
+</body>
+</html>
